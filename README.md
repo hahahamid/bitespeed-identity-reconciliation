@@ -11,6 +11,12 @@ This project implements an Identity Reconciliation service as part of the Bitesp
 - Provides a RESTful API endpoint for identity reconciliation
 - Uses PostgreSQL for data persistence
 
+## Hosted URL for testing
+
+```
+https://bitespeed-identity-reconciliation-k6d1.onrender.com/
+```
+
 ## Tech Stack
 
 - Node.js
@@ -21,19 +27,19 @@ This project implements an Identity Reconciliation service as part of the Bitesp
 ## Setup and Installation
 
 1. Clone the repository:
-  ```bash
-   git clone https://github.com/your-username/bitespeed-identity.git
-   cd bitespeed-identity
-   ```   
+
+```bash
+ git clone https://github.com/your-username/bitespeed-identity.git
+ cd bitespeed-identity
+```
+
 2. Install dependencies:
 
 ```bash
    npm install
-  ```
-
+```
 
 3. Set up your PostgreSQL database and create a `.env` file in the root directory with the following content:
-
 
 ```
 DB_USER=your_username
@@ -55,6 +61,7 @@ The service exposes a single endpoint:
 ```
 POST /api/identify
 ```
+
 Request body:
 
 ```json
@@ -77,7 +84,6 @@ Response body:
 }
 ```
 
-
 # How It Works
 
 - When a request is received, the service checks if a primary contact exists with the given email or phone number.
@@ -88,6 +94,4 @@ Response body:
 - If a secondary contact exists with different information, it updates the secondary contact.
 - If no secondary contact exists but the incoming information is different from the primary, it creates a new secondary contact.
 
-
 The service then consolidates all linked contacts (primary and secondary) and returns the consolidated information.
-
